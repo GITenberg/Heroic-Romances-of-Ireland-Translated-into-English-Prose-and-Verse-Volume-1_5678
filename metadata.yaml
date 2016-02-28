@@ -1,0 +1,30 @@
+_repo: Heroic-Romances-of-Ireland-Translated-into-English-Prose-and-Verse-Volume-1_5678
+creator:
+  author:
+    agent_name: Leahy, Arthur Herbert
+    alias: Leahy, A. H. (Arthur Herbert)
+    birthdate: 1857
+    deathdate: 1928
+    gutenberg_agent_id: '1837'
+    url: http://www.gutenberg.org/2009/agents/1837
+description: ''
+gutenberg_issued: '2004-05-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '5678'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Mythology, Celtic -- Ireland'
+- !lcsh 'Epic literature, Irish -- Translations into English'
+- !lcsh 'Heroes -- Ireland -- Legends'
+- !lcsh 'Tales -- Ireland'
+- !lcc 'PB'
+tableOfContents: The courtship of Etain -- Mac Datho's boar -- The sick-bed of Cuchulain
+  -- The exile of the sons of Usnach -- The combat at the ford -- Special note on
+  the Combat at the ford.
+title: Heroic Romances of Ireland, Translated into English Prose and Verse — Volume
+  1
+url: http://www.gutenberg.org/ebooks/5678
