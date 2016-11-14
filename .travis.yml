@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: n340DjIsMhZHUoJxX873gkLCX/2qtyacq70AJMGMnE8hkB/z93t8DFwou8W2beP4CrIG8MmEPk2YRf9OiQQxTlW4nYGdBGavFDaNMm5L9mHyNCpApIxmZcFQOUlPcTB3MCeJ7nb4CyIH5T8K56zeTV78vJc1+pqBE62F3mfE+WiX38X40L/bPZCqkVY3fIOpYcfTOcPRQXQZqkMJyy8DqIuD8PimSxrNJoBOR3I4hjSuv7ZPJuhDO3BJfFEuCKhUeqHNx3N/U+MW4GRBF5af501Fbrh2AXz4mL6KqlLbaMVpTbjG5bFaoQm61pADqLCawAUi3PpVruJk1TVR4lZkbncN347ngtlCNKbBZ1VYaP/srLmCKWpKWkt7zR7+AC8s9E84LsWqIlhKr5Kpw9N79Qj6X7gl7E5BTOuobE61NFGsSSDbrLGsBlp1PIFkdvX+2p7ajiHEfMUvZAQRraW+t51cpQCKTaW1/4YlWNYcIJ/+y+VrGJyjbkIAiGCzgGFpWwPLDwMX/vRA0BJ5IkfNBWSitLXkM32WCrwVezzCIDbnrvqJNRqJQjVAq6o4oZQlqshkUeOVlNA8wsmeHEUer1jgd/BVF1s+JdQ6nsHipcmfq458NDtJTNHufT0+njUi9bFDsvpIDAcS7nc1wlAXWP70cU9i7F372fWxb3JLZMU=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/Heroic-Romances-of-Ireland-Translated-into-English-Prose-and-Verse-Volume-1_5678
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
