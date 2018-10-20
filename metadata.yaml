@@ -1,5 +1,5 @@
 _repo: Heroic-Romances-of-Ireland-Translated-into-English-Prose-and-Verse-Volume-1_5678
-_version: 0.2.0
+_version: 0.2.1
 covers:
 - cover_type: generated
   image_path: cover.png
@@ -28,6 +28,7 @@ subjects:
 - !lcsh 'Heroes -- Ireland -- Legends'
 - !lcsh 'Tales -- Ireland'
 - !lcc 'PB'
+- GITenberg
 tableOfContents: The courtship of Etain -- Mac Datho's boar -- The sick-bed of Cuchulain
   -- The exile of the sons of Usnach -- The combat at the ford -- Special note on
   the Combat at the ford.
